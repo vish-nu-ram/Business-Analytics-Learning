@@ -1,3 +1,4 @@
+install.packages("forecast")
 library(forecast)
 population <- c(2,6,8,8,12,16,20,20,22,26)
 sales <- c(58,105,88,118,117,137,157,169,149,202)
@@ -42,6 +43,8 @@ x <- rnorm(200)
 e <- rnorm(200)
 y <- x^2 + e
 plot(x,y)
+cor(x,y)
+cor(x*x,y)
 
 x_quad <- x*x
 

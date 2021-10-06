@@ -104,6 +104,7 @@ toyota.corolla.df <-
 training <- sample(toyota.corolla.df$Id, 600)
 validation <- sample(setdiff(toyota.corolla.df$Id, training), 400)
 
+?setdiff
 # run linear regression model
 reg <- lm(Price~., data=toyota.corolla.df[,-c(1,2,6,8,11,15,37,38)], subset=training,
           na.action=na.exclude)

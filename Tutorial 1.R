@@ -8,10 +8,17 @@ toyota.corola.df
 
 View(toyota.corola.df)
 
-fuel_type_cat <- model.matrix(~factor(toyota.corola.df$Fuel_Type))
-color.cat <- model.matrix(~factor(toyota.corola.df$Color))
+fuel_type_cat <- model.matrix(~0 + toyota.corola.df$Fuel_Type, data =  toyota.corola.df)
+color.cat <- model.matrix(~0 + toyota.corola.df$Color , data = toyota.corola.df)
 
-unique(toyota.corola.df$Fuel_Type)
+head(fuel_type_cat)
+head(color.cat)
+
+
+unique(toyota.corola.df$Color)
+
+summary(toyota.corola.df)
+unique(toyota.corola.df$Gears)
 
 cor(na.omit(toyota.corola.df[,-c(1,2,5,6,8,10:12,14:16,19:39)]))
 
@@ -21,6 +28,18 @@ Actual <- c(0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0)
 df <- cbind(Propensity, Actual)
 df <- as.data.frame(df)
 summary(df)
+
+train <- sample(toyota.corolla.df$Id, 500)
+test <- sample(setdiff(toyota.corolla.df$Id, train), 200) 
+validation <- sample(setdiff(toyota.corolla.df$Id, union(test,train)), 300)
+
+head(train)
+head(test)
+head(validation)
+
+head(toyota.corola.df[train,])
+head(toyota.corola.df[test,])
+head(toyota.corola.df[validation,])
 
 install.packages("caret")
 
@@ -39,7 +58,7 @@ install.packages("gains")
 library(gains)
 
 gain <- gains(df$Actual, df$Propensity, groups = 10)
-
+#gain
 barplot(gain$mean.resp/mean(df$Actual), 
         names.arg = gain$depth,
         xlab = "Depth of File", 
