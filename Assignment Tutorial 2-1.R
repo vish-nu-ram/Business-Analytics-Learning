@@ -105,10 +105,6 @@ plot(sales.ts, xlab = "Quarter", ylab = "Sales", log = 'xy',
 
 ### C
 
-# We do see seasonality in the sales, but no we don't expect to see seasonality in shampoo sales, we dont know what the reason is for sesonality.
 
-#Yes partition
-# Yes tweak
-# Yes Look at error
-# Yes
+
 
