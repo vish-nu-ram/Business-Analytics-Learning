@@ -115,7 +115,62 @@ Student_Email,
 Student_Address, 
 Student_GPA
 )
-Values(
-2122000001, "Sable", "Kristen",'1995-7-04', "Female", "353 0891234234", 
-"sable.kristen@gmail.com", " A12AS34 123, QWERT stret", "7.3")
+Values
+(2122000005, "Merrit", "Ravi",'1998-1-09', "Male", "353 0893599034", "merrit.ravi@gmail.com", 
+" A18IS09 783, LLOIK street", "7.9"),
+(2122000006, "Sheyl", "Roy",'1996-9-11', "Female", "353 0888907776", "sheryl.roy@gmail.com", 
+" A12D890 990, JJMKL", "8.2")
 ;
+
+ALTER TABLE Student_Details
+ADD CONSTRAINT chk_email CHECK(Student_Email LIKE '%_@__%.__%');
+
+INSERT INTO Payroll(
+Staff_Role,
+Role_Salary,
+Role_Hours
+)
+Values( "Faculty", 50000, 45),
+("Professor", 75000, 48),
+("Assistant", 45000, 35),
+("Intern", 35000, 40),
+("Director", 80000, 45);
+
+INSERT INTO Staff_Details(
+Staff_ID, 
+Staff_FirstName, 
+Staff_LastName, 
+Staff_DateOfBirth, 
+Staff_Gender, 
+Staff_PhNo, 
+Staff_Email, 
+Staff_Address,
+DOJ,
+Staff_Role
+)
+Values
+(2007000022, "Elaina", "Bonnie",'1971-09-11', "Female", "353 0893090919", "elaina.bonnie@gmail.com", 
+" A90BB30 90, CYH street",'2010-01-01', "Director"),
+(2011000090, "Bernard", "Enis",'1995-04-01', "Male", "353 0890971014", "benrand.enis@gmail.com", 
+" A89GUM1 11, NMY street",'2020-04-01', "Intern")
+;
+
+INSERT INTO School(
+School_ID,
+School_Name,
+School_Building
+)
+Values( "101", "Business", "A Block"),
+("102", "Science", "B Block"),
+("103", "Arts", "C Block"),
+("104", "Sports", "D Block");
+
+INSERT INTO Program_Details(
+Program_ID,
+Program_Name ,
+Program_Duration ,
+Program_Director ,
+Program_School 
+)
+Values ( "BU101", "Business Analytics", 12,"2007000022" ,"101"),
+("BU102","Management",12,"2007000022", "101");
