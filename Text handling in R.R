@@ -47,3 +47,21 @@ tidy_hgwells
 
 tidy_hgwells %>%
   count(word, sort= TRUE)
+
+install.packages("janeaustenr")
+library(janeaustenr)
+library(dplyr)
+library(tidytext)
+
+book_words <- austen_books() %>%
+  unnest_tokens(words,text) %>%
+  count(book,words,sort=TRUE)
+
+book_words
+
+library(ggplot2)
+
+book_tf_idf <- book_words %>%
+  bind_tf_idf(words,book,n)
+
+arrange(book_tf_idf,desc(tf_idf))
