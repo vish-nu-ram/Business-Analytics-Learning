@@ -214,10 +214,10 @@ confusionMatrix(data=Predict, reference = testing$Outcome)
 # Twitter 
 library(twitteR)
 
-consumer_key <- '55vFYPnOh745ECln3dHcqlHXp'
-consumer_secret <- 'oYcaD6KZYqdJycXCRhoR1Ekjk9if3bFc8FH6t1WYYEtHAfNfRd'
-access_token <- '1309109760248160260-iNz7oKkPDqMezmnxLyeke11dmOKSN4'
-access_secret <- 'ViyG5NtwCmfJ5zeUPUL3fURadVOzF7fh83bKBrSGwp3YK'
+consumer_key <- ''
+consumer_secret <- ''
+access_token <- ''
+access_secret <- ''
 
 #bearer_token<-'xxxx'
 
