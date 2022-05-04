@@ -4,7 +4,7 @@
 
 require (xts) # attache the package to convert our dataframes into an xts (time-series) object for simplicity in calculations
 
-setwd("~/R/Trinity/Session1") # setting a working directory to access cvs data file
+#setwd("~/R/Trinity/Session1") # setting a working directory to access cvs data file
 prices = read.csv("BitcoinPrices.csv", header = TRUE, sep = ",") # import prices
 prices$Time = as.POSIXct(prices$Time,format="%Y-%m-%d", tz = "") # converting a date column into date format 
 prices.xts <- xts(prices[,-1], order.by=prices[,1]) # converting a data frame into xts object (time-series object)
